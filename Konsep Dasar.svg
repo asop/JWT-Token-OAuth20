@@ -1,0 +1,105 @@
+<svg class="light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 531.65 182" width="531.65" height="182">
+  <style>:root, .light {
+    --_lm: ;
+    --_dm: initial;
+    --bg: #ffffff;
+    --fg: #1f1f1f;
+    --line: #545454;
+    --accent: #1a73e8;
+    --surface: #f8f9fa;
+    --border: #747775;
+  }
+
+  .dark {
+    --_lm: initial;
+    --_dm: ;
+    --bg: #1f1f1f;
+    --fg: #e3e3e3;
+    --line: #bfbfbf;
+    --accent: #8ab4f8;
+    --surface: #2d2e30;
+    --border: #8e918f;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Mono:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Google Sans Mono', sans-serif; }
+  svg {
+    --_text:          var(--primaryTextColor, var(--fg));
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--lineColor, var(--defaultLinkColor, var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)))));
+    --_arrow:         var(--_line);
+    --_node-fill:     var(--primaryColor, var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg))));
+    --_node-stroke:   var(--primaryBorderColor, var(--nodeBorder, var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)))));
+    --_group-fill:    var(--surface, var(--bg));
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  var(--_node-stroke);
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }</style>
+  <defs>
+    <style>text { font-family: "Google Sans Mono", monospace; font-size: 13px; dominant-baseline: central; white-space: pre; }
+.outer-box { fill: color-mix(in srgb, var(--fg) 6%, transparent); stroke: var(--primaryBorderColor, var(--nodeBorder, var(--border, var(--_node-stroke)))); stroke-width: 1.75px; }
+.rect-pill { fill: var(--bg); stroke: var(--primaryBorderColor, var(--nodeBorder, var(--border, var(--_node-stroke)))); stroke-width: 1.5px; }
+.stadium-pill { fill: var(--bg); stroke: var(--primaryBorderColor, var(--nodeBorder, var(--border, var(--_node-stroke)))); stroke-width: 1.5px; }
+.hex-pill { fill: var(--bg); stroke: var(--primaryBorderColor, var(--nodeBorder, var(--border, var(--_node-stroke)))); stroke-width: 1.5px; stroke-linejoin: round; stroke-linecap: round; }
+.diamond-box { fill: color-mix(in srgb, var(--fg) 9%, transparent); stroke: var(--primaryBorderColor, var(--nodeBorder, var(--border, var(--_node-stroke)))); stroke-width: 1.5px; stroke-linejoin: round; stroke-linecap: round; }
+.header-text { font-size: 14px; font-weight: 600; fill: var(--_text); }
+.label-text { font-size: 13px; font-weight: 500; fill: var(--_text); }
+.annotation-text { font-size: 12px; font-weight: 500; fill: var(--_text); }
+.arrow-line, .bus-line { stroke: var(--_line); stroke-width: 1.5px; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+.divider-line { stroke: var(--primaryBorderColor, var(--nodeBorder, var(--border, var(--_node-stroke)))); stroke-width: 1.0px; stroke-opacity: 0.75; }</style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 Z" fill="var(--_arrow)"/>
+    </marker>
+    <marker id="arrow-left" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 Z" fill="var(--_arrow)"/>
+    </marker>
+  </defs>
+  <g class="shape inner">
+    <rect x="19.15" y="15" width="98" height="20" rx="3" ry="3" class="rect-pill"/>
+    <text x="68.15" y="25" class="label-text" text-anchor="middle" dominant-baseline="central">Frontend</text>
+  </g>
+  <g class="shape inner">
+    <rect x="140.4" y="15" width="153" height="20" rx="10" ry="10" class="stadium-pill"/>
+    <text x="216.9" y="25" class="label-text" text-anchor="middle" dominant-baseline="central">1. Login Google</text>
+  </g>
+  <g class="shape inner">
+    <rect x="325.15" y="15" width="183" height="20" rx="3" ry="3" class="rect-pill"/>
+    <text x="416.65" y="25" class="label-text" text-anchor="middle" dominant-baseline="central">Google Auth Server</text>
+  </g>
+  <g class="shape inner">
+    <rect x="15" y="59" width="199.8" height="20" rx="10" ry="10" class="stadium-pill"/>
+    <text x="114.9" y="69" class="label-text" text-anchor="middle" dominant-baseline="central">3. Kirim Google Token</text>
+  </g>
+  <g class="shape inner">
+    <rect x="335.9" y="59" width="153" height="20" rx="10" ry="10" class="stadium-pill"/>
+    <text x="412.4" y="69" class="label-text" text-anchor="middle" dominant-baseline="central">2. Return Token</text>
+  </g>
+  <g class="shape inner">
+    <rect x="19.15" y="103" width="123.5" height="20" rx="3" ry="3" class="rect-pill"/>
+    <text x="80.9" y="113" class="label-text" text-anchor="middle" dominant-baseline="central">Backend API</text>
+  </g>
+  <g class="shape inner">
+    <rect x="165.2" y="103" width="137.4" height="20" rx="10" ry="10" class="stadium-pill"/>
+    <text x="233.9" y="113" class="label-text" text-anchor="middle" dominant-baseline="central">4. Verifikasi</text>
+  </g>
+  <g class="shape inner">
+    <rect x="376.15" y="103" width="140.5" height="20" rx="3" ry="3" class="rect-pill"/>
+    <text x="446.4" y="113" class="label-text" text-anchor="middle" dominant-baseline="central">Google Server</text>
+  </g>
+  <g class="shape inner">
+    <rect x="18.5" y="147" width="277.8" height="20" rx="10" ry="10" class="stadium-pill"/>
+    <text x="157.4" y="157" class="label-text" text-anchor="middle" dominant-baseline="central">5. Buat &amp; Return JWT Lokal Anda</text>
+  </g>
+  <line x1="117.15" y1="25" x2="140.4" y2="25" class="bus-line"/>
+  <line x1="293.4" y1="25" x2="325.15" y2="25" class="arrow-line" marker-end="url(#arrow)"/>
+  <line x1="142.65" y1="113" x2="165.2" y2="113" class="bus-line"/>
+  <line x1="302.6" y1="113" x2="376.15" y2="113" class="arrow-line" marker-end="url(#arrow)"/>
+  <line x1="296.3" y1="157" x2="331.65" y2="157" class="arrow-line" marker-end="url(#arrow)"/>
+  <line x1="63.9" y1="35" x2="63.9" y2="59" class="bus-line"/>
+  <line x1="63.9" y1="42.5" x2="63.9" y2="59" class="arrow-line" marker-end="url(#arrow)"/>
+  <line x1="63.9" y1="123" x2="63.9" y2="147" class="bus-line"/>
+  <line x1="395.4" y1="35" x2="395.4" y2="59" class="bus-line"/>
+  <line x1="395.4" y1="42.5" x2="395.4" y2="59" class="arrow-line" marker-end="url(#arrow)"/>
+  <text x="340.15" y="157" class="annotation-text" text-anchor="start" dominant-baseline="central">Kembali ke Frontend</text>
+</svg>

@@ -1,0 +1,6 @@
+@Backend_JWT_Email_HostAddress = http://localhost:5248
+
+GET {{Backend_JWT_Email_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

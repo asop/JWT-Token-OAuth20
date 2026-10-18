@@ -1,0 +1,46 @@
+Versi Dependensi CoreUI & React yang Direkomendasikan
+
+Anda sudah bisa menikmati dukungan komponen native React dari 
+CoreUI (seperti <CButton>, <CCard>, <CSidebar>, dll.) secara bersih 
+dari awal, dan Anda tinggal mengambil contekan kode layout dari 
+template CoreUI yang sudah di-download sebelumnya untuk dipasang 
+ke dalam struktur baru ini.
+=========================================================================
+KONFIGURASI
+
+1. Buka file package.json, lalu pastikan bagian "scripts" berisi perintah 
+yang benar untuk memanggil Vite:
+"scripts": {
+  "dev"		: "vite",
+  "start"	: "vite"
+}
+
+2. Buat File Konfigurasi Vite (vite.config.js)
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+})
+=========================================================================
+:mkdir coreUI-Basic
+:cd coreUI-Basic
+:md public
+:md src
+:npm init -y
+:npm install @coreui/react @coreui/coreui @coreui/icons @coreui/icons-react react-router-dom
+	atau
+:npm install react@latest react-dom@latest @coreui/react@latest @coreui/coreui@latest @coreui/icons@latest @coreui/icons-react@latest react-router-dom@latest
+:npm install vite @vitejs/plugin-react --save-dev
+:npm run dev
+
+
+============( Framework Pihak Ke-3 )=======================================
+Redux adalah pustaka pihak ketiga terpisah untuk manajemen state global. 
+CoreUI sendiri sebenarnya bisa berjalan tanpa Redux jika aplikasi Anda 
+masih skala kecil atau menengah.
+
+:npm install @reduxjs/toolkit react-redux
+:npm install axios
+:npm install simplebar-react simplebar
+

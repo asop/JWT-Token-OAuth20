@@ -1,0 +1,71 @@
+@echo off
+
+@REM goto done
+@REM pause
+
+Prompt :
+cd..
+echi -C0A Create Web API Backend-JWT-Email Project...
+echo.
+dotnet new webapi -o Backend-JWT-Email --no-openapi
+echo ErrorLevel %errorlevel%
+cd Backend-JWT-Email
+@REM -----------------------------------------------
+
+echo.
+echi -C0A Create Structure Directories...
+echo.
+mkdir Controllers
+mkdir Data
+mkdir Models\DTOs
+mkdir Models\Entities 
+mkdir Repositories
+mkdir Services
+tree
+@REM -----------------------------------------------
+
+echo.
+echi -C0A Adding Packages EntityFrameworkCore v9
+echo.
+@REM dotnet add package Microsoft.EntityFrameworkCore -v 9.0 --source https://api.nuget.org/v3/index.json
+dotnet add package Microsoft.EntityFrameworkCore -v 9.0
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 9.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools -v 9.0
+
+echo.
+echi -C0A CLI untuk EF Core Tools Global (CLI)
+dotnet tool install --global dotnet-ef
+echo.
+
+echo.
+echi -C0A Tahap 1 Selesai! 
+echi -C0A Buka proyek ini di VS Code / Visual Studio terlebih dahulu.
+pause
+@REM -----------------------------------------------
+
+echo. 
+echi -C0A Migrasi & Jalankan Database (CLI)
+echo. 
+dotnet build
+
+echo. 
+echi -C0A Buat file migrasi
+echo.
+dotnet ef migrations add InitialCreate
+dotnet ef migrations add ViewBuku
+dotnet ef database update
+
+@REM Atau jika tidak terbaca
+@REM %USERPROFILE%\.dotnet\tools\dotnet-ef migrations add InitialCreate
+@REM %USERPROFILE%\.dotnet\tools\dotnet-ef migrations add ViewBuku
+@REM %USERPROFILE%\.dotnet\tools\dotnet-ef database update
+@REM --------------------------------------------------------------------
+
+echo.
+echo. Install paket autentikasi JWT Bearer (JWT Authentication) 
+echo. Install paket Google Authentication
+echo. 
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 9.0.0
+dotnet add package Microsoft.AspNetCore.Authentication.Google --version 9.0.21
+
