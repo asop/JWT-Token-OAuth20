@@ -126,7 +126,6 @@ supaya tidak perlu lagi menulis query SQL secara manual untuk operasi dasar, cuk
 * **`GET /api/login-google`**: [AllowAnonymous] endpoint untuk login dengan google
 * **`GET /api/google-callback`**: [AllowAnonymous] endpoint untuk lemparan dari login dengan google.
 
-# 🔵 Daftar Endpoint API (Backend)
 
 
 ### 🔵 Status Proyek
