@@ -1,4 +1,4 @@
-# 🚀 Implementasi JSON Web Token & Google Auth(OAuth 2.0) & EF Core(ORM)
+### 🚀 Implementasi JSON Web Token & Google Auth(OAuth 2.0) & EF Core(ORM)
 
 <p align="center">
   <img src="Preview/cap1.jpg" alt="Capture 1" width="500">
@@ -13,13 +13,11 @@
 </p>
 
 
-# 🔵 JSON Web Token (Frontend)
-adalah sebuah standar industri berbentuk string teks acak yang digunakan untuk mengirimkan informasi secara aman antara dua pihak.
-Dalam pengembangan web modern (.NET Core, React, CoreUI), JWT paling sering digunakan untuk sistem autentikasi (login)
+### 🔵 JSON Web Token (Frontend)
 
-Login -> Dapat Tiket -> Akses Fitur
+JWT digunakan untuk autentikasi. Alurnya sederhana: Login -> Dapat Token -> Akses Fitur.
 
-Agar aplikasi browser frontend bisa melakukan login dengan sukses, aplikasi harus memberi tahu server backend untuk memberikan "surat izin" (Header CORS) kepada browser frontend.
+Setelah login berhasil, backend mengirim token. Token tersebut disimpan di frontend, lalu dikirim kembali di setiap request API.
 ```
 const handleLogin = async (e) => {
 try {
@@ -33,8 +31,9 @@ try {
   
 ```	  
 
-# 🔵 JSON Web Token (Backend)
-Endpoint disisi Backend(Server) pada ApiController untuk login (mendapatkan tiket)
+### 🔵 JSON Web Token (Backend)
+
+Endpoint login ada di `ApiController` pada sisi backend. Endpoint ini memvalidasi user dan menerbitkan token JWT.
 ```	 
     [HttpPost("login")]
     [AllowAnonymous]
@@ -42,10 +41,13 @@ Endpoint disisi Backend(Server) pada ApiController untuk login (mendapatkan tike
 	..
 ```	 
 
-# 🔵 Google Authentication & OAuth 2.0 (Backend)
-**Google Auth** *adalah salah satu produk nyata yang dibuat oleh Google dengan menerapkan protokol OAuth 2.0*
+### 🔵 Google Authentication & OAuth 2.0 (Backend)
 
-**OAuth 2.0** *adalah sebuah protokol standar industri yang mengatur bagaimana sebuah aplikasi bisa mendapatkan izin untuk mengakses data pengguna dari aplikasi lain tanpa perlu mengetahui kata sandi pengguna tersebut.*
+Google Auth menggunakan protokol OAuth 2.0. User bisa login menggunakan akun Google tanpa perlu membagikan password ke aplikasi ini.
+
+Tersedia 2 endpoint:
+- `GET /api/login-google` : Mengarahkan user ke halaman login Google
+- `GET /api/google-callback` : Menerima hasil autentikasi dari Google
 
 Endpoint disisi Backend(Server) pada ApiController
 ```
@@ -69,8 +71,12 @@ Endpoint disisi Backend(Server) pada ApiController
 	..
 ```
 
-# CORS (Cross-Origin Resource Sharing)
-adalah sistem keamanan browser yang bertindak sebagai **SATPAM** untuk mengatur apakah sebuah aplikasi frontend boleh mengambil data dari backend.
+### 🔵 CORS (Cross-Origin Resource Sharing)
+
+CORS mengatur apakah frontend boleh mengambil data dari backend yang beda origin/port.
+
+Di proyek ini, frontend berjalan di port 6060, dan backend mengizinkan origin tersebut melalui konfigurasi di `appsettings.json` dan `Program.cs`.
+
 
 ⚙️ **Konfigurasi CORS Backend**
 Konfigurasi tambahan untuk alamat CORS pada file *appsettings.json*
@@ -112,32 +118,16 @@ Application.UseCors("IzinkanFrontend");
 ..
 ```
 
-# 🔵 Integrasi EF Core (Entity Framework Core Backend)
-adalah proses menghubungkan dan menyelaraskan kode aplikasi C# (.NET Core) dengan database server (MySQL).
-Menggunakan pendekatan ORM (Object-Relational Mapping). 
-supaya tidak perlu lagi menulis query SQL secara manual untuk operasi dasar, cukup berinteraksi dengan database menggunakan objek C# dan sintaks LINQ.
+### 🔵 Integrasi EF Core (Backend)
+
+EF Core digunakan sebagai ORM untuk menghubungkan aplikasi C# (.NET Core) ke database MySQL. Dengan EF Core, operasi database dilakukan menggunakan objek C# dan LINQ, tanpa perlu menulis query SQL manual untuk operasi dasar.
 
 
-# 🔵 Daftar Endpoint API (Backend)
+### 🔵 Daftar Endpoint API (Backend)
 
-* **`GET /api/login`**: [AllowAnonymous] endpoint untuk login (mendapatkan tiket).
-* **`GET /api/Verify`**: [Authorize] endpoint untuk verifikasi (verifikasi token, akan selalu "405 Method Not Allowed" jika belum punya tiket).
-* **`GET /api/logintest`**: [AllowAnonymous] endpoint untuk test login dengan user&password admin (untuk mendapatkan tiket).
-* **`GET /api/login-google`**: [AllowAnonymous] endpoint untuk login dengan google
-* **`GET /api/google-callback`**: [AllowAnonymous] endpoint untuk lemparan dari login dengan google.
-
+- `GET /api/Verify` : [Authorize] Endpoint untuk verifikasi token yang masih berlaku.
 
 
 ### 🔵 Status Proyek
 
-| Fitur / Modul | Status | Indikator |
-| :--- | :---: | :---: |
-| CoreUI  | `Terhubung` | 💡 *Ready* |
-| Axios  | `Terhubung` | 💡 *Ready* |
-| JSON Web Token  | `Terhubung` | 💡 *Ready* |
-| Google Auth  | `Terhubung` | 💡 *Ready* |
-| Koneksi MySQL  | `Terhubung` | 💡 *Ready* |
-| RESTful API CRUD | `Tidak Ada` | 🌟 *NotReady* |
-| Integrasi EF Core 9 | `Terhubung` | 💡 *Ready* |
-| Database View (Raw SQL) | `Terhubung` | 💡 *Ready* |
-| Koleksi Pengujian Bruno | `Terhubung` | 💡 *Ready* |
+| RESTful API CRUD | Dalam Pengembangan | 🛠️ In Progress |
